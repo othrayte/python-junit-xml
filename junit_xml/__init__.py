@@ -193,13 +193,13 @@ class TestSuite(object):
             # failures
             for failure in case.failures:
                 attrs = {'type': 'failure'}
-                if failure['failure_message']:
-                    attrs['message'] = decode(failure['failure_message'], encoding)
+                if failure['message']:
+                    attrs['message'] = decode(failure['message'], encoding)
                 if failure['failure_type']:
                     attrs['type'] = decode(failure['failure_type'], encoding)
                 failure_element = ET.Element("failure", attrs)
-                if failure['failure_output']:
-                    failure_element.text = decode(failure['failure_output'], encoding)
+                if failure['output']:
+                    failure_element.text = decode(failure['output'], encoding)
                 test_case_element.append(failure_element)
 
             # errors
